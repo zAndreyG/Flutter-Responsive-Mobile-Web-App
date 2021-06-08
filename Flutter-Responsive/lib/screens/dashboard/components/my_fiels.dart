@@ -12,6 +12,7 @@ class MyFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -25,7 +26,8 @@ class MyFiles extends StatelessWidget {
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(
                   horizontal: defaultPadding * 1.5,
-                  vertical: defaultPadding,
+                  vertical:
+                      defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
                 ),
               ),
               onPressed: () {},
@@ -36,9 +38,14 @@ class MyFiles extends StatelessWidget {
         ),
         SizedBox(height: defaultPadding),
         Responsive(
-          mobile: FileInfoCardGridView(),
+          mobile: FileInfoCardGridView(
+            crossAxisCount: _size.width < 650 ? 2 : 4,
+            childAspectRatio: _size.width < 650 ? 1.3 : 1,
+          ),
           tablet: FileInfoCardGridView(),
-          desktop: FileInfoCardGridView(),
+          desktop: FileInfoCardGridView(
+            childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
+          ),
         )
       ],
     );
@@ -58,11 +65,13 @@ class FileInfoCardGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: demoMyFiels.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: defaultPadding,
+        mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
       itemBuilder: (context, index) => FileInfoCard(info: demoMyFiels[index]),
