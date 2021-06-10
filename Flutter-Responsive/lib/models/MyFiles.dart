@@ -17,7 +17,7 @@ class CloudStorageInfo {
 
 List demoMyFiels = [
   CloudStorageInfo(
-    title: "Documents",
+    title: "Documentos",
     numOfFiels: 1328,
     svgSrc: "assets/icons/Documents.svg",
     totalStorage: "1.9GB",
@@ -41,7 +41,7 @@ List demoMyFiels = [
     percentage: 10,
   ),
   CloudStorageInfo(
-    title: "Documents",
+    title: "DropBox",
     numOfFiels: 5328,
     svgSrc: "assets/icons/drop_box.svg",
     totalStorage: "7.3GB",
