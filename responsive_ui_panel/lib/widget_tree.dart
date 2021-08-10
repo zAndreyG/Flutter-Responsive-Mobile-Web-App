@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_ui_panel/app_bar/app_bar_widget.dart';
 import 'package:responsive_ui_panel/drawer/drawer_page.dart';
 import 'package:responsive_ui_panel/panel_left/panel_left_page.dart';
 import 'package:responsive_ui_panel/panel_right/panel_right_page.dart';
@@ -18,7 +19,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         child: (ResponsiveLayout.isTinyLimit(context) ||
                 ResponsiveLayout.isTinyHeightLimit(context)
             ? Container()
-            : AppBar()),
+            : AppBarWidget()),
         preferredSize: Size(double.infinity, 100),
       ),
       body: ResponsiveLayout(
