@@ -22,23 +22,24 @@ class ResponsiveLayout extends StatelessWidget {
 
   static bool isTinyHeightLimit(BuildContext context) =>
       MediaQuery.of(context).size.height < tinyHeightLimit;
+
   static bool isTinyLimit(BuildContext context) =>
       MediaQuery.of(context).size.width < tinyLimit;
 
   static bool isPhone(BuildContext context) =>
-      MediaQuery.of(context).size.height < phoneLimit &&
-      MediaQuery.of(context).size.height >= tinyLimit;
+      MediaQuery.of(context).size.width < phoneLimit &&
+      MediaQuery.of(context).size.width >= tinyLimit;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.height < tabletLimit &&
-      MediaQuery.of(context).size.height >= phoneLimit;
+      MediaQuery.of(context).size.width < tabletLimit &&
+      MediaQuery.of(context).size.width >= phoneLimit;
 
   static bool inLargeTablet(BuildContext context) =>
-      MediaQuery.of(context).size.height < largeTabletLimit &&
-      MediaQuery.of(context).size.height >= tabletLimit;
+      MediaQuery.of(context).size.width < largeTabletLimit &&
+      MediaQuery.of(context).size.width >= tabletLimit;
 
   static bool isComputer(BuildContext context) =>
-      MediaQuery.of(context).size.height >= largeTabletLimit;
+      MediaQuery.of(context).size.width >= largeTabletLimit;
 
   @override
   Widget build(BuildContext context) {
