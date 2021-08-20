@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
@@ -74,14 +73,12 @@ class BarChartSample2State extends State<BarChartSample2> {
                   children: <Widget>[
                     const Text(
                       'Lucro Mensal',
-                      style: TextStyle(color: Colors.white, fontSize: 22),
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     SizedBox(width: 4),
-                    AutoSizeText(
+                    Text(
                       r'R$345.462',
                       style: TextStyle(color: Color(0xff77839a), fontSize: 16),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),
